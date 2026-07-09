@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body { background-color: #FFA500; }
+        .button {
+            background-color: black; color: white; border: none;
+            padding: 15px 30px; margin: 5px; cursor: pointer;
+            border-radius: 5px; font-size: 18px;
+        }
+        .content { display: none; }
+        .back-link {
+            text-decoration: none; color: white; font-size: 16px;
+            margin-top: 20px; display: inline-block;
+        }
+    </style>
+    <script>
+        function showContent(contentId) {
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+            document.getElementById(contentId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: black; text-align: center;">Results</h1>
+        <div style="text-align: center;">
+            <button class="button" onclick="showContent('transcriptionContent')">Transcription</button>
+            <button class="button" onclick="showContent('summaryContent')">Summary</button>
+            <button class="button" onclick="showContent('translatedSummaryContent')">Translated Summary</button>
+        </div>
+        <div id="transcriptionContent" class="content">
+            <h2>Transcription:</h2>
+            <p>{{ transcription }}</p>
+        </div>
+        <div id="summaryContent" class="content">
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+        </div>
+        <div id="translatedSummaryContent" class="content">
+            <h2>Translated Summary:</h2>
+            <p>{{ translated_summary }}</p>
+        </div>
+        <a href="/" class="back-link">Back to Upload</a>
+    </div>
+</body>
+</html>

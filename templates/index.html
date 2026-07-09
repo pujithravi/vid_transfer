@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: black;">MEETING SUMMARIZER AND TRANSLATOR</h1>
+        <div class="upload-box">
+            <p style="color: white;">Drop your files</p>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <div style="margin-top: 20px;">
+                    <input type="submit" value="Upload File" class="upload-button">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
