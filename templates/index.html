@@ -13,6 +13,14 @@
             <p style="color: white;">Drop your files</p>
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" required>
+                <div style="margin-top: 15px;">
+                    <label for="language" style="color: white;">Translate summary to:</label>
+                    <select name="language" id="language">
+                        {% for code, name in languages.items() %}
+                        <option value="{{ code }}">{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
                 <div style="margin-top: 20px;">
                     <input type="submit" value="Upload File" class="upload-button">
                 </div>
